@@ -15,6 +15,15 @@ app.get('/barath/:id', ({ params: { id } }) => ({ id }));
 
 app.get('*', () => 'Not Found Ha Ha Ha Ha');
 
+/**
+ * Handlers
+ * app.get(path,handlers, hook?)
+ * path - router path
+ * handlers - callback function
+ *  - handler have context
+ *  - one of the ex is params id
+ */
+
 app.listen(3000);
 
 console.log(
