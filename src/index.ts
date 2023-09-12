@@ -30,6 +30,16 @@ app.get('*', () => 'Not Found Ha Ha Ha Ha');
  *    - status, header, redirect
  */
 
+app.get(
+  '/response',
+  () =>
+    new Response(JSON.stringify({ id: 1 }), {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+);
+
 app.listen(3000);
 
 console.log(
