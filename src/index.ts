@@ -22,6 +22,12 @@ app.get('*', () => 'Not Found Ha Ha Ha Ha');
  * handlers - callback function
  *  - handler have context
  *  - one of the ex is params id
+ *  - Request data
+ *  - body
+ *  - query params
+ *  - store elysia global store
+ *  - set response
+ *    - status, header, redirect
  */
 
 app.listen(3000);
