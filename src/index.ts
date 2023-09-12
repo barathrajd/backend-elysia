@@ -1,6 +1,11 @@
 import { Elysia } from 'elysia';
 
-const app = new Elysia().get('/', () => 'Hello world From Elysia');
+const plugin = ({ prefix = '/v1' }) =>
+  new Elysia({ prefix }).get(`/${prefix}/hi`, () => 'hi');
+
+const app = new Elysia().use(plugin({ prefix: '/v2' }));
+
+app.get('/', () => 'Hello world From Elysia');
 
 // create a new method using app
 // route - barath
