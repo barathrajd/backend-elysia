@@ -40,6 +40,20 @@ app.get(
     })
 );
 
+/**
+ * State and Decorater
+ * state is assign a value to Context store
+ * decorater is assign a value to Context
+ */
+
+app
+  .state('version', 1)
+  .decorate('getData', () => Date.now())
+  .get(
+    '/versions',
+    (context) => `${context.store.version} - ${context.getData()}`
+  );
+
 app.listen(3000);
 
 console.log(
