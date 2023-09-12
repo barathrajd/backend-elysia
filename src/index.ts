@@ -53,6 +53,22 @@ app
     '/versions',
     (context) => `${context.store.version} - ${context.getData()}`
   );
+/**
+ * dervie to transform the context to have the custom context
+ * headers
+ */
+app
+  .state('version', 2)
+  .decorate('getDay', () => {
+    const data = new Date();
+    return data.getDay().toLocaleString();
+  })
+  .derive(({ request: { headers } }) => {
+    return {
+      test: headers.get('test'),
+    };
+  })
+  .get('/derivetest', ({ test }) => test);
 
 app.listen(3000);
 
